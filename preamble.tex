@@ -1,16 +1,15 @@
 %------------------ PACKAGES ------------------%
 \usepackage[a4paper, margin=2cm]{geometry}
-\usepackage{amsmath, amssymb, amsthm}
 \usepackage{graphicx, float}
 \usepackage{fontspec}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{setspace}
-\usepackage{unicode-math}
+\usepackage{microtype}
 \usepackage[
   colorlinks=true,
-  linkcolor=blue,
+  linkcolor=black,
   pdfauthor={Raghav Chauhan},
   pdftitle={Python Lab}
 ] {hyperref}
@@ -23,14 +22,16 @@
 \definecolor{codepurple}{rgb}{0.58, 0.0, 0.82}
 
 %------------------ FONTS ------------------%
-\setmainfont{Roboto}
+% \setmainfont{TeX Gyre Heros}
+\setmainfont{TeX Gyre Adventor}
+% \setmainfont{Liberation Sans}
+% \setmainfont{roboto}
 \setmonofont{JetBrains Mono}
-\setmathfont{Latin Modern Math}
 
 % \renewcommand{\familydefault}{\sfdefault}
 
 %------------------ CODE STYLE ------------------%
-\lstset{
+\lstdefinestyle {code} {
   basicstyle=\ttfamily\small\singlespacing,
   frame=single,
   breaklines=true,
@@ -38,7 +39,7 @@
   showstringspaces=false,
   language=Python,
   numbers=left,
-  numberstyle=\scriptsize,
+  numberstyle=\scriptsize\ttfamily,
   stepnumber=1,
   numbersep=10pt,
   keywordstyle=\color{codepurple}\bfseries,
@@ -46,10 +47,30 @@
   stringstyle=\color{codeblue}
 }
 
+\lstdefinestyle {output} {
+  basicstyle=\ttfamily\small\singlespacing,
+  frame=single,
+  breaklines=true,
+  columns=fixed,
+  showstringspaces=false,
+  language={},
+  keywordstyle=\color{black}\bfseries,
+  commentstyle=\color{black}\itshape,
+  stringstyle=\color{black}
+}
+
+\lstset{style=code}
+
 %------------------ HEADER ------------------%
 \setlength{\headheight}{15pt}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Python Programming Lab}
-\rhead{ICT-158}
+\rhead{ICT-154}
 \cfoot{\ttfamily{\thepage}}
+
+\fancypagestyle{plain}{
+  \fancyhf{}                 % clear everything
+  \renewcommand{\headrulewidth}{0pt}  % remove header line
+  \cfoot{\texttt{\thepage}} % keep footer
+}
